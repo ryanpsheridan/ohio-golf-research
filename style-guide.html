@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ohio Golf Club Style Guide</title>
+<meta name="description" content="Observed design tokens, components and patterns from the public Ohio Golf Club site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f7f8fa; --surface: #ffffff; --surface-2: #eef0f4; --on: #1b1c1f; --muted: #5c5f66;
+    --outline: #d6d9e0; --accent: #3a5a8c; --accent-soft: #e3eaf6; --warn-soft: #fdf1e6; --warn: #8a4b0f;
+    --r-lg: 20px; --r-md: 14px; --r-sm: 10px;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { margin: 0; background: var(--bg); color: var(--on); font: 16px/1.55 var(--font); -webkit-text-size-adjust: 100%; }
+  img { max-width: 100%; display: block; }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--surface-2); padding: 1px 6px; border-radius: 6px; }
+  code.wrap { display: block; white-space: normal; word-break: break-word; padding: 6px 8px; margin: 6px 0; }
+  a { color: var(--accent); }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.85rem; }
+  header.top { position: sticky; top: 0; z-index: 10; background: rgba(247,248,250,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--outline); }
+  header.top nav { display: flex; gap: 6px; overflow-x: auto; padding: 10px 16px; scrollbar-width: none; }
+  header.top nav::-webkit-scrollbar { display: none; }
+  header.top a { flex: none; text-decoration: none; color: var(--on); font-size: 0.875rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--outline); background: var(--surface); }
+  header.top a:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+  main { max-width: 1120px; margin: 0 auto; padding: 0 16px 64px; }
+  section { padding-top: 40px; }
+  h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1.15; margin: 32px 0 8px; letter-spacing: -0.01em; }
+  h2 { font-size: 1.5rem; margin: 0 0 6px; }
+  h3 { font-size: 1.1rem; margin: 28px 0 12px; }
+  .lede { font-size: 1.05rem; color: var(--muted); max-width: 680px; }
+  .card { background: var(--surface); border-radius: var(--r-lg); padding: 20px; border: 1px solid var(--outline); }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
+  .stat { background: var(--surface); border: 1px solid var(--outline); border-radius: var(--r-md); padding: 16px; }
+  .stat b { display: block; font-size: 2rem; line-height: 1; }
+  .stat span { display: block; font-weight: 600; margin-top: 6px; }
+  .stat small { color: var(--muted); }
+  .swatches { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .swatch, .grad { display: flex; background: var(--surface); border: 1px solid var(--outline); border-radius: var(--r-md); overflow: hidden; }
+  .swatch-color, .grad-sample, .chip { background-image: linear-gradient(var(--c), var(--c)), repeating-conic-gradient(#d9dce2 0 25%, #fff 0 50%); background-size: auto, 12px 12px; }
+  .swatch-color { width: 84px; flex: none; border-right: 1px solid var(--outline); }
+  .grad { flex-direction: column; }
+  .grad-sample { height: 96px; background-color: #8a8f99; border-bottom: 1px solid var(--outline); }
+  .swatch-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .members { margin: 6px 0 0; font-size: 0.82rem; color: var(--muted); }
+  .chip { display: inline-block; width: 12px; height: 12px; border-radius: 4px; border: 1px solid var(--outline); vertical-align: -1px; margin-right: 4px; }
+  .note { background: var(--accent-soft); border-radius: var(--r-md); padding: 14px 16px; margin: 16px 0; }
+  .fonts { display: grid; gap: 12px; }
+  .font-card { background: #0b0b0c; color: #fff; border-radius: var(--r-md); padding: 20px; }
+  .font-card .big { font-size: 2.2rem; line-height: 1.1; margin: 6px 0; }
+  .font-card .muted { color: #b9bcc4; }
+  .type-row { background: var(--surface); border: 1px solid var(--outline); border-radius: var(--r-md); padding: 14px 16px; margin-bottom: 10px; overflow: hidden; }
+  .type-row.off { background: var(--warn-soft); border-color: #f1d8bd; }
+  .type-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+  .type-meta strong { color: var(--on); font-size: 0.95rem; }
+  .flag { color: var(--warn); }
+  .type-sample { line-height: 1.1; overflow-wrap: anywhere; }
+  .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { background: var(--surface); border: 1px solid var(--outline); border-radius: 999px; padding: 3px 10px; font-size: 0.82rem; font-family: var(--mono); }
+  .pill em { font-style: normal; color: var(--muted); margin-left: 4px; }
+  .space-row { display: grid; grid-template-columns: 52px auto; gap: 4px 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--outline); }
+  .space-row .small { grid-column: 1 / -1; }
+  .space-name { font-family: var(--mono); font-size: 0.85rem; }
+  .space-bar { height: 14px; background: var(--accent); border-radius: 4px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .radius, .shadow { background: var(--surface); border: 1px solid var(--outline); border-radius: var(--r-md); padding: 16px; display: flex; flex-direction: column; gap: 4px; }
+  .radius-box { width: 72px; height: 72px; background: var(--accent-soft); border: 2px solid var(--accent); margin-bottom: 8px; }
+  .shadow { background: var(--surface-2); }
+  .shadow-box { height: 72px; background: #fff; border-radius: 12px; margin: 8px 8px 16px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--r-md); overflow: hidden; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--outline); vertical-align: top; }
+  th { background: var(--surface-2); font-weight: 600; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--outline); border-radius: var(--r-md); }
+  .comps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .comp { background: var(--surface); border: 1px solid var(--outline); border-radius: var(--r-lg); padding: 18px; }
+  .comp h3 { margin: 0 0 2px; }
+  .comp-imgs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 12px 0; }
+  .comp, .comp-imgs a { min-width: 0; }
+  .comp-imgs a:only-child img { max-width: 340px; }
+  .comp-imgs img { border-radius: var(--r-sm); border: 1px solid var(--outline); background: #000; }
+  .comp ul { margin: 0; padding-left: 20px; }
+  .comp li { margin-bottom: 4px; }
+  .unconfirmed { background: var(--warn-soft); color: var(--warn); border-radius: var(--r-sm); padding: 10px 12px; margin: 12px 0 0; font-size: 0.9rem; }
+  ol.issues { padding-left: 22px; }
+  ol.issues li { margin-bottom: 12px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 32px 16px; }
+  @media (min-width: 720px) {
+    main { padding: 0 32px 80px; }
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .swatches { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(4, 1fr); }
+    .fonts { grid-template-columns: 1fr 1fr; }
+    .comp-imgs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .space-row { grid-template-columns: 52px 140px 1fr; }
+    .space-row .small { grid-column: auto; }
+  }
+  @media (min-width: 1000px) {
+    .swatches { grid-template-columns: repeat(3, 1fr); }
+    .comps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<header class="top"><nav aria-label="Sections"><a href="#overview">Overview</a><a href="#color">Color</a><a href="#gradients">Gradients</a><a href="#type">Type</a><a href="#spacing">Spacing</a><a href="#shape">Shape</a><a href="#layout">Layout</a><a href="#motion">Motion</a><a href="#components">Components</a><a href="#patterns">Patterns</a><a href="#issues">Inconsistencies</a><a href="#questions">Open questions</a></nav></header>
+<main>
+<section id="overview">
+  <h1>Ohio Golf Club style guide</h1>
+  <p class="lede">What the public site at ohiogolfclubindoor.com renders today, captured October 10, 2026 at 390, 768 and 1440 px. These are observations, not decisions. Every value is a hypothesis to check against the theme code.</p>
+  <div class="stats"><div class="stat"><b>30</b><span>distinct colors</span><small>22 after clustering</small></div><div class="stat"><b>20</b><span>font sizes</span><small>8 off the Tailwind scale</small></div><div class="stat"><b>9</b><span>gradients</span><small>5 decorative, 4 image scrims</small></div><div class="stat"><b>2</b><span>font families</span><small>Montserrat and Inter</small></div></div>
+  <div class="note">The site is built with Next.js and Tailwind CSS. Most sizes, grays and shadows are Tailwind defaults. Only one theme variable exists, <code>--color-primary: #ae1b22</code>. The other brand colors are written as one-off values such as <code>text-[#011E41]</code> and <code>bg-[#222]</code>.</div>
+  <p class="small muted">Pages: home, team, events, contact-us, fall-league, carls-place. Privacy and terms returned 404. Full screenshots are in <code>screenshots/</code>, and the full audit is in <code>audit.md</code>.</p>
+</section>
+
+<section id="color">
+  <h2>Color</h2>
+  <p class="muted">Usage counts every visible element that uses the color: text color for elements with text, plus backgrounds and borders. Colors within a small visual difference of each other (Delta E 6) are grouped as a cluster. The original values are kept. Transparent colors are shown over a checkerboard.</p>
+  <h3>Brand</h3><div class="swatches"><article class="swatch">
+        <div class="swatch-color" style="--c:#ae1b22"></div>
+        <div class="swatch-body">
+          <strong>Club red (--color-primary)</strong>
+          <code>#ae1b22</code>
+          <span class="muted">230 uses · as text, surface, border</span>
+          
+        </div>
+      </article></div><h3>Accent</h3><div class="swatches"><article class="swatch">
+        <div class="swatch-color" style="--c:#eab308"></div>
+        <div class="swatch-body">
+          <strong>Star yellow</strong>
+          <code>#eab308</code>
+          <span class="muted">75 uses · as text</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#e0474f"></div>
+        <div class="swatch-body">
+          <strong>Light red (fall league only)</strong>
+          <code>#e0474f</code>
+          <span class="muted">27 uses · as text</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#011e41"></div>
+        <div class="swatch-body">
+          <strong>Navy</strong>
+          <code>#011e41</code>
+          <span class="muted">24 uses · as text, surface</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#1f2937"></div>
+        <div class="swatch-body">
+          <strong>Gray 800</strong>
+          <code>#1f2937</code>
+          <span class="muted">12 uses · as text</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ae1b2233"></div>
+        <div class="swatch-body">
+          <strong>Club red at 20%</strong>
+          <code>#ae1b2233</code>
+          <span class="muted">9 uses · as surface</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#ae1b2233"></span><code>#ae1b2233</code> 6x, <span class="chip" style="--c:#ae1b2240"></span><code>#ae1b2240</code> 3x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ae1b22b3"></div>
+        <div class="swatch-body">
+          <strong>Club red at 70%</strong>
+          <code>#ae1b22b3</code>
+          <span class="muted">3 uses · as border</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ae1b2299"></div>
+        <div class="swatch-body">
+          <strong>Club red at 60%</strong>
+          <code>#ae1b2299</code>
+          <span class="muted">3 uses · as border</span>
+          
+        </div>
+      </article></div><h3>Surface</h3><div class="swatches"><article class="swatch">
+        <div class="swatch-color" style="--c:#222222"></div>
+        <div class="swatch-body">
+          <strong>Card charcoal</strong>
+          <code>#222222</code>
+          <span class="muted">60 uses · as surface</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#222222"></span><code>#222222</code> 57x, <span class="chip" style="--c:#1a1a1a"></span><code>#1a1a1a</code> 3x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#00000080"></div>
+        <div class="swatch-body">
+          <strong>Black at 50%</strong>
+          <code>#00000080</code>
+          <span class="muted">18 uses · as surface</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#00000099"></div>
+        <div class="swatch-body">
+          <strong>Black at 60%</strong>
+          <code>#00000099</code>
+          <span class="muted">12 uses · as surface</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ffffff80"></div>
+        <div class="swatch-body">
+          <strong>White at 50%</strong>
+          <code>#ffffff80</code>
+          <span class="muted">12 uses · as surface</span>
+          
+        </div>
+      </article></div><h3>Text</h3><div class="swatches"><article class="swatch">
+        <div class="swatch-color" style="--c:#ffffff"></div>
+        <div class="swatch-body">
+          <strong>White</strong>
+          <code>#ffffff</code>
+          <span class="muted">828 uses · as text, surface, border</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#ffffff"></span><code>#ffffff</code> 798x, <span class="chip" style="--c:#f3f4f6"></span><code>#f3f4f6</code> 30x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#000000"></div>
+        <div class="swatch-body">
+          <strong>Black</strong>
+          <code>#000000</code>
+          <span class="muted">213 uses · as text, surface</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#000000"></span><code>#000000</code> 165x, <span class="chip" style="--c:#121212"></span><code>#121212</code> 30x, <span class="chip" style="--c:#0a0a0a"></span><code>#0a0a0a</code> 18x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ffffffb3"></div>
+        <div class="swatch-body">
+          <strong>White at 70%</strong>
+          <code>#ffffffb3</code>
+          <span class="muted">87 uses · as text, border</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#ffffffb3"></span><code>#ffffffb3</code> 78x, <span class="chip" style="--c:#ffffffbf"></span><code>#ffffffbf</code> 9x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#d1d5db"></div>
+        <div class="swatch-body">
+          <strong>Gray 300</strong>
+          <code>#d1d5db</code>
+          <span class="muted">45 uses · as text, border</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#374151"></div>
+        <div class="swatch-body">
+          <strong>Gray 700</strong>
+          <code>#374151</code>
+          <span class="muted">18 uses · as text</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#374151"></span><code>#374151</code> 15x, <span class="chip" style="--c:#3a4a60"></span><code>#3a4a60</code> 3x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#4b5563"></div>
+        <div class="swatch-body">
+          <strong>Gray 600</strong>
+          <code>#4b5563</code>
+          <span class="muted">12 uses · as text</span>
+          
+        </div>
+      </article></div><h3>Border</h3><div class="swatches"><article class="swatch">
+        <div class="swatch-color" style="--c:#e5e7eb"></div>
+        <div class="swatch-body">
+          <strong>Gray 200</strong>
+          <code>#e5e7eb</code>
+          <span class="muted">109 uses · as border, text</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ffffff1a"></div>
+        <div class="swatch-body">
+          <strong>White at 10%</strong>
+          <code>#ffffff1a</code>
+          <span class="muted">81 uses · as border</span>
+          <p class="members">Cluster: <span class="chip" style="--c:#ffffff1a"></span><code>#ffffff1a</code> 78x, <span class="chip" style="--c:#ffffff0d"></span><code>#ffffff0d</code> 3x</p>
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#ffffffe6"></div>
+        <div class="swatch-body">
+          <strong>White at 90%</strong>
+          <code>#ffffffe6</code>
+          <span class="muted">9 uses · as border, text</span>
+          
+        </div>
+      </article><article class="swatch">
+        <div class="swatch-color" style="--c:#9ca3af"></div>
+        <div class="swatch-body">
+          <strong>Gray 400</strong>
+          <code>#9ca3af</code>
+          <span class="muted">6 uses · as border</span>
+          
+        </div>
+      </article></div>
+  <p class="small muted">Also seen only inside gradients: <span class="chip" style="--c:#0a2a52"></span><code>#0a2a52</code> (navy panel start color on the fall league page).</p>
+</section>
+
+<section id="gradients">
+  <h2>Gradients</h2>
+  <p class="muted">9 distinct gradients. The 5 decorative ones sit on the home league card and the fall league panels. Flattening those does most of the work toward a cleaner look. The 4 black image scrims keep text readable over photos and could become one overlay token.</p>
+  <div class="swatches"><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))"></div>
+    <div class="swatch-body">
+      <strong>Image scrim</strong>
+      <span class="muted">carls-place · 15 elements across widths</span>
+      <code class="wrap">linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))</code>
+      <span class="muted small">On: <code>div.absolute.inset-0 &gt; div.absolute.inset-0</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))"></div>
+    <div class="swatch-body">
+      <strong>Image scrim</strong>
+      <span class="muted">team · 15 elements across widths</span>
+      <code class="wrap">linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0))</code>
+      <span class="muted small">On: <code>div.relative.aspect-square &gt; div.absolute.inset-0</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(to right bottom, rgb(10, 42, 82), rgb(1, 30, 65))"></div>
+    <div class="swatch-body">
+      <strong>Decorative</strong>
+      <span class="muted">fall-league · 12 elements across widths</span>
+      <code class="wrap">linear-gradient(to right bottom, rgb(10, 42, 82), rgb(1, 30, 65))</code>
+      <span class="muted small">On: <code>div.mt-7.grid &gt; div.rounded-[10px].border</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))"></div>
+    <div class="swatch-body">
+      <strong>Image scrim</strong>
+      <span class="muted">fall-league · 3 elements across widths</span>
+      <code class="wrap">linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))</code>
+      <span class="muted small">On: <code>div.absolute.inset-0 &gt; div.absolute.inset-0</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0) 35%)"></div>
+    <div class="swatch-body">
+      <strong>Image scrim</strong>
+      <span class="muted">fall-league · 3 elements across widths</span>
+      <code class="wrap">linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0) 35%)</code>
+      <span class="muted small">On: <code>div.absolute.inset-0 &gt; div.absolute.inset-0</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:radial-gradient(rgba(174, 27, 34, 0.5), rgba(174, 27, 34, 0.15) 55%, rgba(0, 0, 0, 0) 80%)"></div>
+    <div class="swatch-body">
+      <strong>Decorative</strong>
+      <span class="muted">home · 3 elements across widths</span>
+      <code class="wrap">radial-gradient(rgba(174, 27, 34, 0.5), rgba(174, 27, 34, 0.15) 55%, rgba(0, 0, 0, 0) 80%)</code>
+      <span class="muted small">On: <code>div.relative.w-full &gt; div.absolute.-inset-3</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:radial-gradient(circle at 100% 0%, rgba(174, 27, 34, 0.5), rgba(0, 0, 0, 0) 45%), radial-gradient(circle at 0% 100%, rgba(1, 30, 65, 0.9), rgba(0, 0, 0, 0) 55%), linear-gradient(135deg, rgb(11, 11, 11) 0%, rgb(16, 19, 24) 40%, rgb(26, 14, 16) 75%, rgb(11, 11, 11) 100%)"></div>
+    <div class="swatch-body">
+      <strong>Decorative</strong>
+      <span class="muted">home · 3 elements across widths</span>
+      <code class="wrap">radial-gradient(circle at 100% 0%, rgba(174, 27, 34, 0.5), rgba(0, 0, 0, 0) 45%), radial-gradient(circle at 0% 100%, rgba(1, 30, 65, 0.9), rgba(0, 0, 0, 0) 55%), linear-gradient(135deg, rgb(11, 11, 11) 0%, rgb(16, 19, 24) 40%, rgb(26, 14, 16) 75%, rgb(11, 11, 11) 100%)</code>
+      <span class="muted small">On: <code>div.relative.w-full &gt; div.relative.rounded-2xl</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.35) 50%, rgba(0, 0, 0, 0))"></div>
+    <div class="swatch-body">
+      <strong>Decorative</strong>
+      <span class="muted">home · 3 elements across widths</span>
+      <code class="wrap">linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.35) 50%, rgba(0, 0, 0, 0))</code>
+      <span class="muted small">On: <code>div.relative.rounded-2xl &gt; div.absolute.top-0</code></span>
+    </div>
+  </article><article class="grad">
+    <div class="grad-sample" style="background-image:linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(174, 27, 34, 0.6) 50%, rgba(0, 0, 0, 0))"></div>
+    <div class="swatch-body">
+      <strong>Decorative</strong>
+      <span class="muted">home · 3 elements across widths</span>
+      <code class="wrap">linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(174, 27, 34, 0.6) 50%, rgba(0, 0, 0, 0))</code>
+      <span class="muted small">On: <code>div.relative.rounded-2xl &gt; div.absolute.bottom-0</code></span>
+    </div>
+  </article></div>
+</section>
+
+<section id="type">
+  <h2>Typography</h2>
+  <div class="fonts">
+    <div class="font-card" style="font-family:'Montserrat',sans-serif"><span class="muted" style="font-family:var(--font)">Headings · Montserrat · 600, 700, 800 loaded · 342 text elements</span><div class="big" style="font-weight:700">Same Game. Different Season.</div><div>Aa Bb Cc 0123456789</div></div>
+    <div class="font-card" style="font-family:'Inter',sans-serif"><span class="muted" style="font-family:var(--font)">Body and UI · Inter (variable 100 to 900) · 961 text elements</span><div class="big" style="font-weight:500">Book a private hitting bay</div><div>Aa Bb Cc 0123456789</div></div>
+  </div>
+  <h3>Observed sizes mapped to Tailwind steps</h3>
+  <p class="muted small">Each row shows the size in its most common font and weight. Highlighted rows are off the scale.</p>
+  <div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>104px · Montserrat 800 · 1x</span>
+        <span class="flag">Nearest step: 8xl (96px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(104px,13vw);font-weight:800">Same game.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-8xl</strong>
+        <span>96px · Montserrat 800 · 1x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(96px,13vw);font-weight:800">Same game.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-7xl</strong>
+        <span>72px · Montserrat 700 · 4x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(72px,13vw);font-weight:700">Same game.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-6xl</strong>
+        <span>60px · Montserrat 700 · 12x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(60px,13vw);font-weight:700">Same game.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-5xl</strong>
+        <span>48px · Montserrat 700 · 16x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(48px,13vw);font-weight:700">Same game. Different season.</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>40px · Montserrat 800 · 8x</span>
+        <span class="flag">Nearest step: 4xl (36px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(40px,13vw);font-weight:800">Same game. Different season.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-4xl</strong>
+        <span>36px · Montserrat 700 · 29x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(36px,13vw);font-weight:700">Same game. Different season.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-3xl</strong>
+        <span>30px · Montserrat 700 · 45x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(30px,13vw);font-weight:700">Same game. Different season.</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>26px · Montserrat 800 · 2x</span>
+        <span class="flag">Nearest step: 2xl (24px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(26px,13vw);font-weight:800">Same game. Different season.</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-2xl</strong>
+        <span>24px · Montserrat 700 · 11x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(24px,13vw);font-weight:700">Same game. Different season.</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>22px · Montserrat 800 · 21x</span>
+        <span class="flag">Nearest step: xl (20px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(22px,13vw);font-weight:800">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-xl</strong>
+        <span>20px · Montserrat 700 · 89x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Montserrat',sans-serif;font-size:min(20px,13vw);font-weight:700">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-lg</strong>
+        <span>18px · Inter 400 · 236x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(18px,13vw);font-weight:400">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-base</strong>
+        <span>16px · Inter 400 · 255x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(16px,13vw);font-weight:400">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>15px · Inter 400 · 69x</span>
+        <span class="flag">Nearest step: sm (14px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(15px,13vw);font-weight:400">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-sm</strong>
+        <span>14px · Inter 400 · 326x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(14px,13vw);font-weight:400">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>13px · Inter 700 · 60x</span>
+        <span class="flag">Nearest step: xs (12px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(13px,13vw);font-weight:700">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row">
+      <div class="type-meta">
+        <strong>text-xs</strong>
+        <span>12px · Inter 700 · 52x</span>
+        
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(12px,13vw);font-weight:700">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>11px · Inter 700 · 57x</span>
+        <span class="flag">Nearest step: xs (12px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(11px,13vw);font-weight:700">Private hitting bays with TrackMan 4</div>
+    </div><div class="type-row off">
+      <div class="type-meta">
+        <strong>Off scale</strong>
+        <span>10px · Inter 400 · 9x</span>
+        <span class="flag">Nearest step: xs (12px)</span>
+      </div>
+      <div class="type-sample" style="font-family:'Inter',sans-serif;font-size:min(10px,13vw);font-weight:400">Private hitting bays with TrackMan 4</div>
+    </div>
+  <h3>Weights</h3><div class="pills"><span class="pill">400 <em>633</em></span><span class="pill">700 <em>388</em></span><span class="pill">500 <em>105</em></span><span class="pill">800 <em>99</em></span><span class="pill">600 <em>72</em></span><span class="pill">300 <em>3</em></span><span class="pill">900 <em>3</em></span></div>
+  <h3>Line heights (top 15)</h3><div class="pills"><span class="pill">28px <em>329</em></span><span class="pill">20px <em>311</em></span><span class="pill">24px <em>241</em></span><span class="pill">22.5px <em>73</em></span><span class="pill">19.5px <em>54</em></span><span class="pill">16px <em>45</em></span><span class="pill">16.5px <em>45</em></span><span class="pill">36px <em>36</em></span><span class="pill">22.75px <em>30</em></span><span class="pill">40px <em>28</em></span><span class="pill">24.2px <em>21</em></span><span class="pill">15px <em>21</em></span><span class="pill">48px <em>16</em></span><span class="pill">60px <em>11</em></span><span class="pill">32px <em>10</em></span></div>
+  <h3>Letter spacing</h3><p class="muted small">28 distinct values, most from one-off tracking on the fall league page.</p><div class="pills"><span class="pill">normal <em>891</em></span><span class="pill">-0.45px <em>91</em></span><span class="pill">-0.5px <em>71</em></span><span class="pill">-0.75px <em>33</em></span><span class="pill">-0.9px <em>28</em></span><span class="pill">1.54px <em>21</em></span><span class="pill">-0.55px <em>21</em></span><span class="pill">-1.2px <em>16</em></span><span class="pill">0.72px <em>15</em></span><span class="pill">0.78px <em>15</em></span><span class="pill">1px <em>15</em></span><span class="pill">1.76px <em>12</em></span><span class="pill">-0.6px <em>11</em></span><span class="pill">-1.5px <em>9</em></span></div>
+  <h3>Text transform</h3><p class="muted">Uppercase on 145 elements: badges, eyebrows, contact labels, stat labels and the fall league headings.</p>
+  <h3>Headings by level</h3><div class="pills"><span class="pill">h3 18px <em>72</em></span><span class="pill">h3 20px <em>63</em></span><span class="pill">h3 22px <em>21</em></span><span class="pill">h2 36px <em>17</em></span><span class="pill">h2 30px <em>17</em></span><span class="pill">h4 18px <em>15</em></span><span class="pill">h2 48px <em>10</em></span><span class="pill">h3 24px <em>10</em></span><span class="pill">h1 36px <em>7</em></span><span class="pill">h2 60px <em>6</em></span><span class="pill">h3 30px <em>6</em></span><span class="pill">h1 72px <em>3</em></span><span class="pill">h1 60px <em>3</em></span><span class="pill">h3 36px <em>3</em></span><span class="pill">h3 26px <em>2</em></span><span class="pill">h1 48px <em>2</em></span><span class="pill">h1 104px <em>1</em></span><span class="pill">h1 96px <em>1</em></span><span class="pill">h2 24px <em>1</em></span><span class="pill">h1 30px <em>1</em></span></div>
+</section>
+
+<section id="spacing">
+  <h2>Spacing</h2>
+  <p class="muted">Padding, margin and gap values are mapped to a suggested 4px based scale. Nearly every value already matches Tailwind's spacing steps.</p>
+  <div class="space-row"><span class="space-name">2px</span><span class="space-bar" style="width:2px"></span><span class="muted small">absorbs 2px x12</span></div><div class="space-row"><span class="space-name">4px</span><span class="space-bar" style="width:4px"></span><span class="muted small">absorbs 4px x33</span></div><div class="space-row"><span class="space-name">6px</span><span class="space-bar" style="width:6px"></span><span class="muted small">absorbs 6px x42</span></div><div class="space-row"><span class="space-name">8px</span><span class="space-bar" style="width:8px"></span><span class="muted small">absorbs 8px x352, 9.59px x1, 9.61px x1, 10px x90</span></div><div class="space-row"><span class="space-name">12px</span><span class="space-bar" style="width:12px"></span><span class="muted small">absorbs 12px x360, 14px x82</span></div><div class="space-row"><span class="space-name">16px</span><span class="space-bar" style="width:16px"></span><span class="muted small">absorbs 16px x598, 17.5px x4, 18px x11</span></div><div class="space-row"><span class="space-name">20px</span><span class="space-bar" style="width:20px"></span><span class="muted small">absorbs 20px x114, 22px x24</span></div><div class="space-row"><span class="space-name">24px</span><span class="space-bar" style="width:24px"></span><span class="muted small">absorbs 22.39px x2, 24px x446, 28px x109</span></div><div class="space-row"><span class="space-name">32px</span><span class="space-bar" style="width:32px"></span><span class="muted small">absorbs 30px x4, 32px x466, 34px x2</span></div><div class="space-row"><span class="space-name">40px</span><span class="space-bar" style="width:40px"></span><span class="muted small">absorbs 40px x19</span></div><div class="space-row"><span class="space-name">48px</span><span class="space-bar" style="width:48px"></span><span class="muted small">absorbs 48px x73</span></div><div class="space-row"><span class="space-name">64px</span><span class="space-bar" style="width:64px"></span><span class="muted small">absorbs 64px x37, 72px x5</span></div><div class="space-row"><span class="space-name">80px</span><span class="space-bar" style="width:80px"></span><span class="muted small">absorbs 77.83px x2, 77.84px x2, 78.33px x2, 80px x11</span></div><div class="space-row"><span class="space-name">96px</span><span class="space-bar" style="width:96px"></span><span class="muted small">absorbs 88.7px x1, 88.72px x5, 96px x73, 112px x4</span></div><div class="space-row"><span class="space-name">128px</span><span class="space-bar" style="width:128px"></span><span class="muted small">absorbs 115px x2, 128px x11</span></div><div class="space-row"><span class="space-name">160px</span><span class="space-bar" style="width:128px"></span><span class="muted small">absorbs 160px x13</span></div>
+  <p class="muted small">Not mapped (more than 25% from any step, mostly margins computed from auto centering): 208px x4, 221px x2, 272px x10, 304px x2, 320px x6, 336px x6, 352px x8, 400px x2, 416px x2.</p>
+  <div class="note">Section rhythm is consistent: 64px top and bottom on mobile, 96px from 768px up (<code>py-16 md:py-24</code>).</div>
+</section>
+
+<section id="shape">
+  <h2>Shape and depth</h2>
+  <h3>Corner radius</h3><div class="grid-3"><div class="radius"><div class="radius-box" style="border-radius:16px"></div><strong>16px</strong><span class="muted small">Cards, media, header · 117x</span></div><div class="radius"><div class="radius-box" style="border-radius:8px"></div><strong>8px</strong><span class="muted small">Buttons, checkbox cards · 57x</span></div><div class="radius"><div class="radius-box" style="border-radius:9999px"></div><strong>Full</strong><span class="muted small">Pills, badges, dots · 55x</span></div><div class="radius"><div class="radius-box" style="border-radius:12px"></div><strong>12px</strong><span class="muted small">Offering and review cards · 42x</span></div><div class="radius"><div class="radius-box" style="border-radius:10px"></div><strong>10px</strong><span class="muted small">Fall league only · 30x</span></div><div class="radius"><div class="radius-box" style="border-radius:4px"></div><strong>4px</strong><span class="muted small">Inputs · 18x</span></div><div class="radius"><div class="radius-box" style="border-radius:28px"></div><strong>28px</strong><span class="muted small">Home league card glow · 3x</span></div></div>
+  <h3>Shadows</h3><div class="grid-3"><div class="shadow"><div class="shadow-box" style="box-shadow:rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px"></div><strong>shadow-xl</strong><span class="muted small">57x</span></div><div class="shadow"><div class="shadow-box" style="box-shadow:rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px"></div><strong>shadow-md</strong><span class="muted small">57x</span></div><div class="shadow"><div class="shadow-box" style="box-shadow:rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"></div><strong>shadow-sm</strong><span class="muted small">18x</span></div><div class="shadow"><div class="shadow-box" style="box-shadow:rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.7) 0px 30px 80px -20px"></div><strong>Custom deep shadow</strong><span class="muted small">3x</span></div><div class="shadow"><div class="shadow-box" style="box-shadow:rgb(255, 255, 255) 0px 0px 0px 0px, rgb(174, 27, 34) 0px 0px 0px 2px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px"></div><strong>Ring 2 red + shadow-xl</strong><span class="muted small">3x</span></div></div>
+  <h3>Borders</h3><div class="pills"><span class="pill"><span class="chip" style="--c:#ffffff1a"></span>1px solid #ffffff1a <em>78</em></span><span class="pill"><span class="chip" style="--c:#e5e7eb"></span>1px solid #e5e7eb <em>70</em></span><span class="pill"><span class="chip" style="--c:#00000000"></span>1px solid #00000000 <em>39</em></span><span class="pill"><span class="chip" style="--c:#d1d5db"></span>1px solid #d1d5db <em>18</em></span><span class="pill"><span class="chip" style="--c:#9ca3af"></span>1px solid #9ca3af <em>6</em></span><span class="pill"><span class="chip" style="--c:#ffffffe6"></span>1px solid #ffffffe6 <em>6</em></span><span class="pill"><span class="chip" style="--c:#ae1b22"></span>1px solid #ae1b22 <em>3</em></span><span class="pill"><span class="chip" style="--c:#ffffff"></span>1px solid #ffffff <em>3</em></span><span class="pill"><span class="chip" style="--c:#ffffffb3"></span>1px solid #ffffffb3 <em>3</em></span><span class="pill"><span class="chip" style="--c:#ae1b22b3"></span>1px solid #ae1b22b3 <em>3</em></span><span class="pill"><span class="chip" style="--c:#e5e7eb"></span>1px dashed #e5e7eb <em>3</em></span><span class="pill"><span class="chip" style="--c:#ae1b2299"></span>1px solid #ae1b2299 <em>3</em></span><span class="pill"><span class="chip" style="--c:#d1d5db"></span>1px dashed #d1d5db <em>3</em></span></div>
+</section>
+
+<section id="layout">
+  <h2>Breakpoints and layout</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Breakpoint</th><th>What changes</th></tr>
+    <tr><td>Under 640</td><td>Single column. Container side padding 16px. Phone number moves into the menu. Hero heading 36px.</td></tr>
+    <tr><td>640 (sm)</td><td>Container side padding 24px.</td></tr>
+    <tr><td>768 (md)</td><td>Phone number shows in the header. Section padding 64px to 96px. Two-column grids start. Hero heading steps up.</td></tr>
+    <tr><td>1024 (lg)</td><td>Container side padding 32px. Three and four-column card grids.</td></tr>
+    <tr><td>1280, 1536</td><td>Present in the CSS. No layout change was visible at the captured widths.</td></tr>
+  </table></div>
+  <p class="muted small">Container max width 1440px (90rem). Text blocks are capped at 672 or 768px, card grids at 1152px, and the header at 576px.</p>
+</section>
+
+<section id="motion">
+  <h2>Motion</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Use</th><th>Value</th><th>Count</th></tr>
+    <tr><td>Fade in on scroll</td><td><code>opacity, transform 0.6s, 0.6s ease-out, ease-out</code></td><td>372</td></tr><tr><td>Button and link color change</td><td><code>color, background-color, border-color, text-decoration-color, fill, stroke 0.15s cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>270</td></tr><tr><td>General hover</td><td><code>all 0.3s cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>30</td></tr><tr><td>Image zoom on tile hover</td><td><code>transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>24</td></tr><tr><td>General hover</td><td><code>all 0.15s cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>15</td></tr><tr><td>Card shadow on hover</td><td><code>box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>15</td></tr><tr><td>Other</td><td><code>opacity 1s cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>3</td></tr>
+  </table></div>
+  <p class="muted small">Keyframes in the CSS: <code>ping</code>, <code>pulse</code>, <code>spin</code>, <code>summer-shine</code>. The <code>ping</code> animation drives the pulsing dot in the league badges.</p>
+</section>
+
+<section id="components">
+  <h2>Components</h2>
+  <p class="muted">Tap a screenshot to open it full size.</p>
+  <div class="comps"><article class="comp" id="c-header-and-navigation">
+    <h3>Header and navigation</h3>
+    <p class="muted small">All pages</p>
+    <div class="comp-imgs"><a href="screenshots/components/header-desktop.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/header-desktop.jpg" alt="Header and navigation screenshot"></a><a href="screenshots/components/mobile-menu.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/mobile-menu.jpg" alt="Header and navigation screenshot"></a></div>
+    <ul><li>A floating white bar, 576px max width, 16px from the top, radius 16px, shadow-sm.</li><li>Logo, then the phone number in navy #011e41 (16px bold, hidden below 768px), then a hamburger. Desktop uses the hamburger too.</li><li>The menu panel lists Fall League, Lessons &amp; Fittings, Memberships, Events, Bay Rentals, Member Login, Customer Login, the phone number and a red Contact button.</li><li>The phone link turns red on hover. The hamburger focus outline is transparent, so no focus ring is visible.</li></ul>
+    <p class="unconfirmed"><strong>Not confirmed:</strong> Desktop menu panel layout. The menu was only opened at 390.</p>
+  </article><article class="comp" id="c-badge-and-hero">
+    <h3>Badge and hero</h3>
+    <p class="muted small">Home, events, contact, fall league, Carl’s Place</p>
+    <div class="comp-imgs many"><a href="screenshots/components/hero-home.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/hero-home.jpg" alt="Badge and hero screenshot"></a><a href="screenshots/components/events-hero.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/events-hero.jpg" alt="Badge and hero screenshot"></a><a href="screenshots/components/league-hero.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/league-hero.jpg" alt="Badge and hero screenshot"></a></div>
+    <ul><li>Badge: red pill, Inter 12px bold uppercase, 8 by 16px padding, 32px tall. The home and fall league versions add a pulsing dot.</li><li>Hero A (home): centered on black, Montserrat 72px, red underline bar, primary plus outline buttons.</li><li>Hero B (events, contact, Carl’s Place): full-bleed photo with a dark overlay, centered, one primary button.</li><li>Hero C (fall league): photo with a left gradient, left aligned, 104px uppercase title.</li></ul>
+    <p class="unconfirmed"><strong>Not confirmed:</strong> Whether these are one component with variants or separate markup per page.</p>
+  </article><article class="comp" id="c-buttons">
+    <h3>Buttons</h3>
+    <p class="muted small">All pages</p>
+    <div class="comp-imgs many"><a href="screenshots/states/cta-primary-rest.png" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/states/cta-primary-rest.png" alt="Buttons screenshot"></a><a href="screenshots/states/cta-primary-hover.png" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/states/cta-primary-hover.png" alt="Buttons screenshot"></a><a href="screenshots/states/cta-outline-rest.png" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/states/cta-outline-rest.png" alt="Buttons screenshot"></a><a href="screenshots/states/cta-outline-hover.png" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/states/cta-outline-hover.png" alt="Buttons screenshot"></a></div>
+    <ul><li>Primary: red fill, Inter 16px medium, 12 by 24px padding, 48px tall, radius 8px.</li><li>Large: 18px text, 16 by 32px padding, 56px tall. Wide: 12 by 32px padding (Member Portal only). Outline: 1px white border.</li><li>Hover inverts the primary to white with red text and a red border. Outline hover turns the text and border red. Focus shows a 2px red ring. The transition is 150ms.</li><li>“Contact Us Today” has no hover change and a white focus ring.</li></ul>
+    <p class="unconfirmed"><strong>Not confirmed:</strong> Disabled and pressed states (none present). The Send Message hover.</p>
+  </article><article class="comp" id="c-image-link-tiles">
+    <h3>Image link tiles</h3>
+    <p class="muted small">Home</p>
+    <div class="comp-imgs"><a href="screenshots/components/image-tiles.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/image-tiles.jpg" alt="Image link tiles screenshot"></a><a href="screenshots/components/events-bar.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/events-bar.jpg" alt="Image link tiles screenshot"></a></div>
+    <ul><li>Photo with a 50% black overlay and a centered Montserrat 36px label with a text shadow, radius 16px.</li><li>Hover: the image scales to 105% over 500ms and the overlay lightens to 30%.</li></ul>
+    
+  </article><article class="comp" id="c-feature-and-offering-cards">
+    <h3>Feature and offering cards</h3>
+    <p class="muted small">Home, events, Carl’s Place</p>
+    <div class="comp-imgs many"><a href="screenshots/components/offering-cards.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/offering-cards.jpg" alt="Feature and offering cards screenshot"></a><a href="screenshots/components/event-cards.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/event-cards.jpg" alt="Feature and offering cards screenshot"></a><a href="screenshots/components/why-choose-cards.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/why-choose-cards.jpg" alt="Feature and offering cards screenshot"></a></div>
+    <ul><li>Home and Carl’s Place: #222222, radius 12px, 32px padding, centered, shadow-md that rises to shadow-lg on hover.</li><li>Events: #222222, radius 16px, 1px white at 10% border, left aligned, an outline icon, lighter gray body text.</li></ul>
+    
+  </article><article class="comp" id="c-membership-tiers-and-member-rates">
+    <h3>Membership tiers and member rates</h3>
+    <p class="muted small">Home</p>
+    <div class="comp-imgs"><a href="screenshots/components/membership-tiers.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/membership-tiers.jpg" alt="Membership tiers and member rates screenshot"></a><a href="screenshots/components/member-rates.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/member-rates.jpg" alt="Membership tiers and member rates screenshot"></a></div>
+    <ul><li>Tier cards: white on #121212, radius 16px, shadow-xl, Montserrat price at 30px, red check list.</li><li>Most Popular adds a 2px red ring and a red pill tag. Hover turns the border red.</li><li>Rates: a white panel at 672px, two columns of label and red price rows with gray 200 dividers.</li></ul>
+    
+  </article><article class="comp" id="c-lesson-and-fitting-block">
+    <h3>Lesson and fitting block</h3>
+    <p class="muted small">Home</p>
+    <div class="comp-imgs"><a href="screenshots/components/lessons-fitting.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/lessons-fitting.jpg" alt="Lesson and fitting block screenshot"></a><a href="screenshots/components/bay-rentals.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/bay-rentals.jpg" alt="Lesson and fitting block screenshot"></a></div>
+    <ul><li>Two-column text and image row on #121212: Montserrat 36px heading, paragraph, red check list, one primary button.</li><li>Bay Rentals is the same layout mirrored, on black.</li></ul>
+    
+  </article><article class="comp" id="c-reviews">
+    <h3>Reviews</h3>
+    <p class="muted small">Home, Carl’s Place</p>
+    <div class="comp-imgs"><a href="screenshots/components/reviews.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/reviews.jpg" alt="Reviews screenshot"></a><a href="screenshots/components/testimonials.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/testimonials.jpg" alt="Reviews screenshot"></a></div>
+    <ul><li>Home: black cards at a fixed 350px width, radius 12px, name, yellow stars, truncated text, date. Laid out 3 then 2.</li><li>Carl’s Place: a different component. #222222 cards, italic quote, red attribution.</li></ul>
+    <p class="unconfirmed"><strong>Not confirmed:</strong> Review source (it loads late, so it looks dynamic). Truncation rule. Whether the Carl’s Place names are placeholders.</p>
+  </article><article class="comp" id="c-team-member-card">
+    <h3>Team member card</h3>
+    <p class="muted small">Team</p>
+    <div class="comp-imgs"><a href="screenshots/components/team-card.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/team-card.jpg" alt="Team member card screenshot"></a></div>
+    <ul><li>Square photo, radius 16px, black gradient scrim. Then the name in Montserrat 20px, role in bold, email and bio at 14px.</li></ul>
+    
+  </article><article class="comp" id="c-fall-league-modules">
+    <h3>Fall league modules</h3>
+    <p class="muted small">Home, fall league</p>
+    <div class="comp-imgs many"><a href="screenshots/components/league-card.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/league-card.jpg" alt="Fall league modules screenshot"></a><a href="screenshots/components/season-timeline.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/season-timeline.jpg" alt="Fall league modules screenshot"></a><a href="screenshots/components/how-it-works.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/how-it-works.jpg" alt="Fall league modules screenshot"></a><a href="screenshots/components/league-cta.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/league-cta.jpg" alt="Fall league modules screenshot"></a></div>
+    <ul><li>A stat strip, a color-coded season timeline, numbered navy gradient panels with #e0474f eyebrows, a bracket and a points table.</li><li>Most of the gradients and one-off sizes (radius 10px, 18px margins) live here.</li></ul>
+    <p class="unconfirmed"><strong>Not confirmed:</strong> Whether this page is a one-off campaign or its parts should become shared components.</p>
+  </article><article class="comp" id="c-contact-block-form-and-footer">
+    <h3>Contact block, form and footer</h3>
+    <p class="muted small">Contact (form), all pages (footer)</p>
+    <div class="comp-imgs"><a href="screenshots/components/contact-block.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/contact-block.jpg" alt="Contact block, form and footer screenshot"></a><a href="screenshots/components/footer.jpg" target="_blank" rel="noopener"><img loading="lazy" src="screenshots/components/footer.jpg" alt="Contact block, form and footer screenshot"></a></div>
+    <ul><li>Contact: red uppercase 12px labels (Visit, Call, Email) over white text, and a red “Get directions” link.</li><li>Form: white card, radius 16px. Labels are gray 700 16px. Inputs are 50px tall with a gray 300 border and radius 4px. Two checkbox cards at radius 8px.</li><li>Footer: #0a0a0a, four columns, red Montserrat 18px titles, 14px white links that turn red on hover, a white at 10% divider.</li></ul>
+    <p class="unconfirmed"><strong>Not confirmed:</strong> Form focus, error, success and required states (the form was not used).</p>
+  </article></div>
+</section>
+
+<section id="patterns">
+  <h2>Repeated patterns</h2>
+  <div class="card"><ol>
+    <li><strong>Section intro.</strong> A centered Montserrat heading (36 to 48px) and an 18px paragraph, then the content, then one centered red button.</li>
+    <li><strong>Alternating rows.</strong> Text and photo side by side, mirrored on the next row. Each row has a heading, a paragraph, an optional check list and one button.</li>
+    <li><strong>Hero recipe.</strong> Red pill badge, big heading, paragraph, one primary button. Only the home hero adds a secondary outline button.</li>
+    <li><strong>Photo with overlay.</strong> A black overlay or gradient behind white text, for heroes, tiles, team photos and the closing banner.</li>
+    <li><strong>Closing banner.</strong> A full-bleed photo with a centered heading and a large button, just before the footer.</li>
+    <li><strong>One CTA per section.</strong> The secondary path is usually a text link, not a second button.</li>
+    <li><strong>Background rhythm.</strong> Black and #121212 sections alternate. Cards use #222222 on dark, or white on #121212 for pricing.</li>
+    <li><strong>Fade in on scroll.</strong> Most blocks fade and rise over 600ms as they enter the viewport.</li>
+  </ol></div>
+</section>
+
+<section id="issues">
+  <h2>Inconsistencies</h2>
+  <p class="muted">Ranked by how much they matter for building shared components.</p>
+  <div class="card"><ol class="issues">
+    <li><strong>Colors bypass the theme.</strong> Only the red is a variable. Navy, the near blacks, the card charcoal, the light red and the star yellow are written inline, so they need names before they can become tokens.</li>
+    <li><strong>Five near-black surfaces:</strong> #000000, #0a0a0a, #121212, #1a1a1a and #222222. These could be three: page, raised section and card.</li>
+    <li><strong>Buttons that look alike but aren't the same.</strong> There are three filled sizes (one used only once), and one CTA has no hover and a different focus ring. Suggested: primary, outline and text variants, in medium (48px) and large (56px).</li>
+    <li><strong>Four card styles that look alike.</strong> Offering (12px, no border, centered), event (16px, bordered, left aligned), review (black, 12px) and testimonial (#222, italic). These could be one card with options.</li>
+    <li><strong>Seven corner radii:</strong> 4, 8, 10, 12, 16 and 28px, plus full. Suggested: 4 for inputs, 8 for controls, 12 and 16 for cards, full for pills.</li>
+    <li><strong>Twenty font sizes, eight of them off the Tailwind scale.</strong> Letter spacing has 28 values.</li>
+    <li><strong>Headings skip levels.</strong> Home, team and events go from h1 to h3. This affects search, which is in scope, and the heading component.</li>
+    <li><strong>Two reds.</strong> #e0474f appears only on the fall league page, alongside the brand red and four transparent versions of it.</li>
+    <li><strong>Decorative gradients</strong> are concentrated on two surfaces. They're easy to flatten.</li>
+    <li><strong>Uppercase is applied ad hoc.</strong> It should become a named text style (eyebrow or label).</li>
+  </ol></div>
+</section>
+
+<section id="questions">
+  <h2>Open questions</h2>
+  <div class="card"><ul>
+    <li>Where do the privacy and terms pages live? Both return 404.</li>
+    <li>Is the fall league page a one-off campaign, or should its timeline, stat strip and panels become shared components?</li>
+    <li>Do the theme files define the navy, charcoal and light red anywhere, or are they only inline values?</li>
+    <li>What are the form focus, error and success states? They weren't tested, to avoid submitting the form.</li>
+    <li>Where do the home reviews come from, and how are they truncated?</li>
+    <li>Are the Carl’s Place testimonials real customer quotes?</li>
+    <li>The home Instagram section rendered as empty space in the capture. Does an embed load there in a real browser?</li>
+    <li>Is the hamburger-only navigation on desktop intentional?</li>
+  </ul></div>
+</section>
+</main>
+<footer>Research capture, October 10, 2026. Values come from the rendered site and still need to be checked against the code.</footer>
+</body>
+</html>

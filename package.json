@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "capture": "node scripts/capture.mjs",
-    "tokens": "node scripts/extract-tokens.mjs"
+    "tokens": "node scripts/extract-tokens.mjs",
+    "guide": "node scripts/build-style-guide.mjs"
   },
   "repository": {
     "type": "git",

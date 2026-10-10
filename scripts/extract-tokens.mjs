@@ -142,8 +142,6 @@ async function main() {
     const usedAs = Object.entries(colorUse).filter(([, ctr]) => ctr.map.has(hex)).map(([k, ctr]) => [k, ctr.map.get(hex).count]).sort((a, b) => b[1] - a[1]);
     const { h, s, l } = hsl(rgba);
     const chromatic = s > 0.25 && l > 0.08 && l < 0.92;
-    // status colors are only guessed from hue, flagged as such in the report
-    if (chromatic && usedAs[0]?.[0] !== 'surface' && ((h < 15 || h > 345) && s > 0.6)) return { role: 'status', guess: 'error-like red, confirm in code' };
     if (chromatic) return { role: 'brand', usedAs: usedAs.map((u) => u[0]) };
     if (usedAs[0]) return { role: usedAs[0][0], usedAs: usedAs.map((u) => u[0]) };
     return { role: 'other' };
@@ -158,18 +156,13 @@ async function main() {
 
   // ---------- type scale ----------
   const sizeList = sizes.list().map((s) => ({ ...s, px: px(s.value) })).filter((s) => s.px).sort((a, b) => a.px - b.px);
-  const STEP_NAMES = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'];
-  // Anchor body text at the most frequent size, then keep sizes used at least 3 times as steps.
-  const body = [...sizeList].sort((a, b) => b.count - a.count)[0];
-  const anchors = sizeList.filter((s) => s.count >= 3 || s === body).map((s) => s.px);
-  const steps = [];
-  for (const v of anchors) if (!steps.length || v / steps[steps.length - 1] > 1.08) steps.push(v);
-  const bodyIdx = steps.findIndex((v) => v >= body.px);
-  const offset = 2 - bodyIdx; // body text maps to "md"
-  const namedSteps = steps.map((v, i) => ({ name: STEP_NAMES[i + offset] ?? `step${i + offset}`, px: v }));
+  // The site is built with Tailwind, so observed sizes are mapped onto Tailwind's default
+  // font-size steps. A step is only proposed if the site actually uses that size.
+  const TAILWIND_STEPS = [['xs', 12], ['sm', 14], ['base', 16], ['lg', 18], ['xl', 20], ['2xl', 24], ['3xl', 30], ['4xl', 36], ['5xl', 48], ['6xl', 60], ['7xl', 72], ['8xl', 96], ['9xl', 128]];
+  const namedSteps = TAILWIND_STEPS.filter(([, v]) => sizeList.some((s) => s.px === v)).map(([name, v]) => ({ name, px: v }));
   const typeMapping = sizeList.map((s) => {
     const nearest = namedSteps.reduce((a, b) => (Math.abs(b.px - s.px) < Math.abs(a.px - s.px) ? b : a));
-    const fits = Math.abs(nearest.px - s.px) <= 0.5;
+    const fits = nearest.px === s.px;
     return { observed: s.value, count: s.count, step: nearest.name, stepValue: nearest.px + 'px', fits, pages: s.pages };
   });
 
@@ -177,12 +170,17 @@ async function main() {
   const spacingAll = new Map();
   for (const ctr of [padding, margin, gaps]) for (const e of ctr.list()) spacingAll.set(e.value, (spacingAll.get(e.value) ?? 0) + e.count);
   const spacingSorted = [...spacingAll.entries()].sort((a, b) => a[0] - b[0]).map(([v, count]) => ({ px: v, count, onGrid4: v % 4 === 0, onGrid8: v % 8 === 0 }));
-  const SCALE = [4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128];
+  const SCALE = [2, 4, 6, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128, 160];
+  const nearestStep = (px) => SCALE.reduce((a, b) => (Math.abs(b - px) < Math.abs(a - px) ? b : a));
+  const mappable = (s) => Math.abs(nearestStep(s.px) - s.px) / nearestStep(s.px) <= 0.25;
+  const fmt = (s) => `${Math.round(s.px * 100) / 100}px x${s.count}`;
   const spacingSuggested = SCALE.map((v, i) => ({
     name: String(i + 1),
     px: v,
-    absorbs: spacingSorted.filter((s) => SCALE.reduce((a, b) => (Math.abs(b - s.px) < Math.abs(a - s.px) ? b : a)) === v).map((s) => `${s.px}px x${s.count}`),
+    absorbs: spacingSorted.filter((s) => mappable(s) && nearestStep(s.px) === v).map(fmt),
   })).filter((s) => s.absorbs.length);
+  // Large values that fit no step, mostly margins computed from auto centering.
+  const spacingUnmapped = spacingSorted.filter((s) => !mappable(s)).map(fmt);
 
   // ---------- CSS: media queries, keyframes, transitions ----------
   const cssDir = path.join(RAW, 'css');
@@ -259,7 +257,7 @@ async function main() {
       weights: weights.list(), lineHeights: lineHeights.list(), letterSpacing: letterSpacing.list(), textTransform: transforms.list(),
       headingSizes: headingSizes.list(), textStyles: textStyles.list(),
     },
-    spacing: { padding: padding.list(), margin: margin.list(), gap: gaps.list(), combined: spacingSorted, suggestedScale: spacingSuggested },
+    spacing: { padding: padding.list(), margin: margin.list(), gap: gaps.list(), combined: spacingSorted, suggestedScale: spacingSuggested, unmapped: spacingUnmapped },
     shape: { radii: radii.list(), borders: borders.list(), shadows: shadows.list() },
     layout: { maxWidths: maxWidths.list(), mediaQueries: mediaQueries.list(), breakpoints: breakpoints.list() },
     motion: { computedTransitions: transitions.list(), cssTransitions: cssTransitions.list(), animations: animations.list(), keyframes: keyframes.list() },

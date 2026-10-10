@@ -58,6 +58,10 @@ const PROPS = [
 
 let lastNavigation = 0;
 
+// Honor HTTPS_PROXY when set (Playwright ignores it by default).
+const PROXY = process.env.HTTPS_PROXY || process.env.https_proxy;
+const proxyOption = PROXY ? { proxy: { server: PROXY } } : {};
+
 const log = { base: BASE, startedAt: new Date().toISOString(), robots: null, pages: [], stylesheets: [], fonts: {}, notes: [] };
 
 // Minimal robots.txt parser: rules for "*" and any group naming our agent token.
@@ -271,11 +275,11 @@ async function main() {
   await mkdir(CSS_DIR, { recursive: true });
   await mkdir(SHOTS, { recursive: true });
 
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(proxyOption);
   try {
     // robots.txt first. If it cannot be read, stop rather than guess.
     const robotsUrl = BASE + '/robots.txt';
-    const api = await request.newContext({ userAgent: USER_AGENT });
+    const api = await request.newContext({ userAgent: USER_AGENT, ...proxyOption });
     let status, robotsText;
     try {
       const r = await api.get(robotsUrl, { timeout: 20000 });
