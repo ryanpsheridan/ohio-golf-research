@@ -1,0 +1,1657 @@
+{
+  "base": "https://www.ohiogolfclubindoor.com",
+  "startedAt": "2026-10-10T14:51:27.995Z",
+  "robots": {
+    "url": "https://www.ohiogolfclubindoor.com/robots.txt",
+    "status": 404,
+    "crawlDelaySeconds": 0
+  },
+  "pages": [
+    {
+      "name": "home",
+      "path": "/",
+      "url": "https://www.ohiogolfclubindoor.com/",
+      "widths": {
+        "390": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:51:32.028Z",
+          "elements": 365,
+          "documentHeight": 10886
+        },
+        "768": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:51:50.026Z",
+          "elements": 366,
+          "documentHeight": 8275
+        },
+        "1440": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:52:02.894Z",
+          "elements": 366,
+          "documentHeight": 7346
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/"
+    },
+    {
+      "name": "team",
+      "path": "/team",
+      "url": "https://www.ohiogolfclubindoor.com/team",
+      "widths": {
+        "390": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:52:27.785Z",
+          "elements": 118,
+          "documentHeight": 4056
+        },
+        "768": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:52:39.304Z",
+          "elements": 119,
+          "documentHeight": 2473
+        },
+        "1440": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:52:47.922Z",
+          "elements": 119,
+          "documentHeight": 1967
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/team"
+    },
+    {
+      "name": "events",
+      "path": "/events",
+      "url": "https://www.ohiogolfclubindoor.com/events",
+      "widths": {
+        "390": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:52:56.339Z",
+          "elements": 120,
+          "documentHeight": 4032
+        },
+        "768": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:53:07.405Z",
+          "elements": 121,
+          "documentHeight": 3212
+        },
+        "1440": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:53:16.308Z",
+          "elements": 121,
+          "documentHeight": 2638
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/events"
+    },
+    {
+      "name": "contact-us",
+      "path": "/contact-us",
+      "url": "https://www.ohiogolfclubindoor.com/contact-us",
+      "widths": {
+        "390": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:53:25.390Z",
+          "elements": 120,
+          "documentHeight": 2708
+        },
+        "768": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:53:35.300Z",
+          "elements": 121,
+          "documentHeight": 2218
+        },
+        "1440": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:53:43.371Z",
+          "elements": 121,
+          "documentHeight": 1748
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/contact-us"
+    },
+    {
+      "name": "fall-league",
+      "path": "/fall-league",
+      "url": "https://www.ohiogolfclubindoor.com/fall-league",
+      "widths": {
+        "390": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:53:51.301Z",
+          "elements": 421,
+          "documentHeight": 5535
+        },
+        "768": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:54:03.671Z",
+          "elements": 422,
+          "documentHeight": 4995
+        },
+        "1440": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:54:13.647Z",
+          "elements": 424,
+          "documentHeight": 3562
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/fall-league"
+    },
+    {
+      "name": "carls-place",
+      "path": "/carls-place",
+      "url": "https://www.ohiogolfclubindoor.com/carls-place",
+      "widths": {
+        "390": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:54:23.345Z",
+          "elements": 149,
+          "documentHeight": 5435
+        },
+        "768": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:54:35.085Z",
+          "elements": 150,
+          "documentHeight": 4268
+        },
+        "1440": {
+          "status": 200,
+          "capturedAt": "2026-10-10T14:54:44.245Z",
+          "elements": 150,
+          "documentHeight": 4416
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/carls-place"
+    },
+    {
+      "name": "privacy",
+      "path": "/privacy",
+      "url": "https://www.ohiogolfclubindoor.com/privacy",
+      "widths": {
+        "390": {
+          "status": 404,
+          "capturedAt": "2026-10-10T14:54:54.447Z"
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/privacy",
+      "notFound": true
+    },
+    {
+      "name": "terms",
+      "path": "/terms",
+      "url": "https://www.ohiogolfclubindoor.com/terms",
+      "widths": {
+        "390": {
+          "status": 404,
+          "capturedAt": "2026-10-10T14:54:57.289Z"
+        }
+      },
+      "finalUrl": "https://www.ohiogolfclubindoor.com/terms",
+      "notFound": true
+    }
+  ],
+  "stylesheets": [
+    {
+      "url": "https://www.ohiogolfclubindoor.com/_next/static/css/2b2126efba49fa3d.css",
+      "file": "8a6ba846e0.css",
+      "status": 200,
+      "firstSeenOn": "home"
+    }
+  ],
+  "fonts": {
+    "home": {
+      "faces": [
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "files": [
+        "https://www.ohiogolfclubindoor.com/_next/static/media/904be59b21bd51cb-s.p.woff2",
+        "https://www.ohiogolfclubindoor.com/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+      ]
+    },
+    "team": {
+      "faces": [
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "files": [
+        "https://www.ohiogolfclubindoor.com/_next/static/media/904be59b21bd51cb-s.p.woff2",
+        "https://www.ohiogolfclubindoor.com/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+      ]
+    },
+    "events": {
+      "faces": [
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "files": [
+        "https://www.ohiogolfclubindoor.com/_next/static/media/e4af272ccee01ff0-s.p.woff2",
+        "https://www.ohiogolfclubindoor.com/_next/static/media/904be59b21bd51cb-s.p.woff2"
+      ]
+    },
+    "contact-us": {
+      "faces": [
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "files": [
+        "https://www.ohiogolfclubindoor.com/_next/static/media/904be59b21bd51cb-s.p.woff2",
+        "https://www.ohiogolfclubindoor.com/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+      ]
+    },
+    "fall-league": {
+      "faces": [
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "files": [
+        "https://www.ohiogolfclubindoor.com/_next/static/media/904be59b21bd51cb-s.p.woff2",
+        "https://www.ohiogolfclubindoor.com/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+      ]
+    },
+    "carls-place": {
+      "faces": [
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Inter",
+          "weight": "100 900",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "300",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "400",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "500",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "600",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "700",
+          "style": "normal",
+          "status": "loaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat",
+          "weight": "800",
+          "style": "normal",
+          "status": "unloaded"
+        },
+        {
+          "family": "Montserrat Fallback",
+          "weight": "normal",
+          "style": "normal",
+          "status": "unloaded"
+        }
+      ],
+      "files": [
+        "https://www.ohiogolfclubindoor.com/_next/static/media/904be59b21bd51cb-s.p.woff2",
+        "https://www.ohiogolfclubindoor.com/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+      ]
+    }
+  },
+  "notes": [],
+  "finishedAt": "2026-10-10T14:54:57.338Z"
+}

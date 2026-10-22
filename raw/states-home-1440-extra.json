@@ -1,0 +1,140 @@
+[
+  {
+    "id": "cta-primary",
+    "selector": "a:has-text(\"Register Your Team\")",
+    "hoverChanges": {
+      "0:a:color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      },
+      "0:a:background-color": {
+        "from": "rgb(174, 27, 34)",
+        "to": "rgb(255, 255, 255)"
+      },
+      "0:a:border-top-color": {
+        "from": "rgba(0, 0, 0, 0)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  },
+  {
+    "id": "cta-outline",
+    "selector": "a:has-text(\"How It Works\")",
+    "hoverChanges": {
+      "0:a:color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      },
+      "0:a:border-top-color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  },
+  {
+    "id": "cta-instagram",
+    "selector": "a:has-text(\"Follow Us on Instagram\")",
+    "hoverChanges": {
+      "0:a:color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      },
+      "0:a:background-color": {
+        "from": "rgb(174, 27, 34)",
+        "to": "rgb(255, 255, 255)"
+      },
+      "0:a:border-top-color": {
+        "from": "rgba(0, 0, 0, 0)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  },
+  {
+    "id": "cta-rates",
+    "selector": "a:has-text(\"View Rates & Book\")",
+    "hoverChanges": {
+      "0:a:color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      },
+      "0:a:background-color": {
+        "from": "rgb(174, 27, 34)",
+        "to": "rgb(255, 255, 255)"
+      },
+      "0:a:border-top-color": {
+        "from": "rgba(0, 0, 0, 0)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  },
+  {
+    "id": "cta-portal",
+    "selector": "a:has-text(\"Login to Member Portal\")",
+    "hoverChanges": {
+      "0:a:color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      },
+      "0:a:background-color": {
+        "from": "rgb(174, 27, 34)",
+        "to": "rgb(255, 255, 255)"
+      },
+      "0:a:border-top-color": {
+        "from": "rgba(0, 0, 0, 0)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  },
+  {
+    "id": "cta-contact-today",
+    "missing": true
+  },
+  {
+    "id": "tile-lessons",
+    "selector": "a:has-text(\"Schedule Private Lessons\")",
+    "hoverChanges": {
+      "1:img:transform": {
+        "from": "none",
+        "to": "matrix(1.05, 0, 0, 1.05, 0, 0)"
+      },
+      "2:div:background-color": {
+        "from": "rgba(0, 0, 0, 0.5)",
+        "to": "rgba(0, 0, 0, 0.3)"
+      }
+    }
+  },
+  {
+    "id": "card-offering",
+    "selector": "h3:has-text(\"Private Hitting Bays\") >> xpath=..",
+    "hoverChanges": {
+      "0:div:box-shadow": {
+        "from": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px",
+        "to": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px"
+      }
+    }
+  },
+  {
+    "id": "card-tier-classic",
+    "selector": "h3:has-text(\"Classic Membership\") >> xpath=..",
+    "hoverChanges": {
+      "0:div:border-top-color": {
+        "from": "rgb(229, 231, 235)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  },
+  {
+    "id": "card-review",
+    "missing": true
+  },
+  {
+    "id": "footer-link",
+    "selector": "footer a:has-text(\"Memberships\")",
+    "hoverChanges": {
+      "0:a:color": {
+        "from": "rgb(255, 255, 255)",
+        "to": "rgb(174, 27, 34)"
+      }
+    }
+  }
+]

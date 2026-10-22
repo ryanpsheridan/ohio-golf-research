@@ -1,0 +1,1 @@
+(robots.txt returned HTTP 404, treated as allow all)

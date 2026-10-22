@@ -1,0 +1,26 @@
+{
+  "name": "ogc-design-system",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "capture": "node scripts/capture.mjs",
+    "tokens": "node scripts/extract-tokens.mjs",
+    "guide": "node scripts/build-style-guide.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanpsheridan/ohio-golf-research.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanpsheridan/ohio-golf-research/issues"
+  },
+  "homepage": "https://github.com/ryanpsheridan/ohio-golf-research#readme",
+  "private": true,
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  },
+  "type": "module"
+}
